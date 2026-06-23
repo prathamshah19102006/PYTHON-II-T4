@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="color:chartreuse;font-size: 30px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+        This is faculty list
+         <ol type="I">
+        <li>VHA</li>
+        <li>VBY</li>
+        <li>PSP</li>
+        <li>MSS</li>
+        <li>DPS</li>
+    </ol>
+    </h1>
+    <table rules="all" border="2px solid black">
+        <tr>
+            <th>
+                id
+            </th>
+            <th><ul><li>faculty name</li></ul></th>
+            <th><ul><li>subject</li></ul></th>
+            <th><ul><li>score</li></ul></th>
+            <th><ul><li>email</li></ul></th>
+            <th><ul><li>update</li></ul></th>
+            <th><ul><li>delete</li></ul></th>
+        </tr>
+    {% for f in fac %}
+        <tr>
+
+            <td><a href="{% url 'id' f.id %}"> {{f.id}}</a></td>
+            <td>{{f.fac_name}}</td>
+            <td>{{f.subject}}</td>
+            <td>{{f.score}}</td>
+            <td>{{f.email}}</td>
+            <td>update</td>
+            <td>delete</td>
+           
+        </tr>
+         {% endfor %}
+    </table>
+    <a href="{% url 'fac' %}">add faculty</a>
+   
+</body>
+</html>
