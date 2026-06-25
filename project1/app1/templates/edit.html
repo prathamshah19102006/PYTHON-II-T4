@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <form method="post">
+        {% csrf_token %}
+        <label>fac name:</label>
+        <input type="text" name="facname" value="{{fac.fac_name}}">
+          <label>subject</label>
+        <input type="text" name="subjectname" value="{{fac.subject}}"/>
+          <label>feedback</label>
+        <input type="number" name="score" value="{{fac.score}}"/>
+          <label>email:</label> 
+        <input type="email" name="email" value="{{fac.email}}"/>
+<input type="submit" value="edit">
+    </form>
+</body>
+</html>
