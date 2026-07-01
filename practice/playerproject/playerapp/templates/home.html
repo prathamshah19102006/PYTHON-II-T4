@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <nav>
+        <a href="{% url 'home' %}">home</a>
+        <a href="{% url 'welcome' %}">welcome</a>
+    </nav>
+    {% block content %}
+    <table rules="all" border="3px solid">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>innings</th>
+            <th>runs</th>
+            <th>actions</th>
+        </tr>
+        {% for  p in play %}
+        <tr>
+            <td><a href="{% url 'id' p.id%}">{{p.id}}</a></td>
+            <td>{{p.name}}</td>
+            <td>{{p.testinnings}}</td>
+            <td>{{p.runs}}</td>
+            <td><a href="{% url 'edit' p.id %}">edit</a>|<a href="{% url 'delete' p.id %}">delete</a></td>
+        </tr>
+        {% endfor %}
+       
+        <a href="{% url 'add' %}">add player</a>
+      
+    </table>
+       {% endblock %}
+</body>
+</html>
